@@ -10,7 +10,6 @@
   <!-- Bootstrap core CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-
   <style>
     .bd-placeholder-img {
       font-size: 1.125rem;
@@ -37,11 +36,11 @@
       <hr>
       <ul class="nav nav-pills flex-column mb-auto">
         <li class="nav-item">
-          <a href="#" class="nav-link active" aria-current="page">
+          <a href="#instructionsModal" class="nav-link active" aria-current="page" data-bs-toggle="modal"
+            data-bs-target="#instructionsModal">
             Instructions
           </a>
         </li>
-
       </ul>
       <hr>
       <div class="dropdown">
@@ -74,6 +73,60 @@
       </div>
     </div>
   </main>
+
+  <!-- The Modal -->
+  <div class="modal" id="instructionsModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Real Estate Explorer Instructions</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p>You can select one or multiple neighborhoods either using the list or the map. </p>
+          <dl>
+            <dt>How to use Map</dt>
+            <dd>
+              - On the map the area shaded light gray is in Ames City without any real estate sales info. The selected
+              neighborhood are
+              shaded with dark purple. the area colored with light purple is neighborhood with data which has not been
+              selected to be
+              included.</dd>
+            <dd>
+              - To select a neighborhood from the map, click on it. The second click will unselect the neighborhood.
+            </dd>
+            <dt>How to use List</dt>
+            <dd>
+              - To select a Neighborhood from the list just click on it,
+            </dd>
+            <dd>
+              - To select multiple neighborhoods from the list just on Windows <kbd>Ctrl + click</kbd> on Mac use
+              <kbd>cmd + click</kbd>.
+            </dd>
+            <dd>
+              - To select all neighborhoods on Windows <kbd>Ctrl + a</kbd> on Mac use <kbd>cmd + a</kbd>.
+            </dd>
+            <dt>Charts</dt>
+            <dd>
+              - There are different analytical charts available.
+              Click on each tab item to checkout the chart.
+              The charts will be adjusted to the selected neighborhoods.
+            </dd>
+          </dl>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got It!</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
