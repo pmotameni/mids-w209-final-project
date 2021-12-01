@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="b-divider"></div>
-    <div class="container">
+    <div class="d-flex flex-column flex-shrink-0 p-4">
       <br />
       <div class='row'>
         <div id="observablehq-charts-a907bc69" class='col-md-3'></div>
@@ -90,15 +90,39 @@
   <script type="module">
     import { Runtime, Inspector, Library } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
     import define from "https://api.observablehq.com/@berkeleyvis/final-project-prototype.js?v=3";
-    const runtime = new Runtime(Object.assign(new Library, {
-      width: 1120
-    }));
-    runtime.module(define, name => {
-      if (name === "charts") return new Inspector(document.querySelector("#observablehq-charts-a907bc69"));
-      if (name === "mapSelector") return new Inspector(document.querySelector("#observablehq-mapSelector-a907bc69"));
-      if (name === "viewof parametersv2") return new Inspector(document.querySelector("#observablehq-viewof-parametersv2-a907bc69"));
-      return ["setupCharts"].includes(name);
-    });
+    let mw = 1220
+
+    // TODO add multiple queries
+    const mediaQuery = window.matchMedia('(min-width: 768px)')
+
+    function handleTabletChange(e) {
+      // Check if the media query is true
+      if (e.matches) {
+        // Then log the following message to the console
+        console.log('Media enlarged!')
+        mw = 1220
+      }
+      else {
+        console.log('Media reduced!')
+        mw = 800
+      }
+      // Observable runtime
+      const runtime = new Runtime(Object.assign(new Library, {
+        width: mw
+      }));
+      runtime.module(define, name => {
+        if (name === "charts") return new Inspector(document.querySelector("#observablehq-charts-a907bc69"));
+        if (name === "mapSelector") return new Inspector(document.querySelector("#observablehq-mapSelector-a907bc69"));
+        if (name === "viewof parametersv2") return new Inspector(document.querySelector("#observablehq-viewof-parametersv2-a907bc69"));
+        return ["setupCharts"].includes(name);
+      });
+    }
+
+    // Register event listener
+    mediaQuery.addListener(handleTabletChange)
+
+    // Initial check
+    handleTabletChange(mediaQuery)
   </script>
 </body>
 <style>
