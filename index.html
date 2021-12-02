@@ -26,9 +26,11 @@
     }
   </style>
 
+
 </head>
 
 <body>
+
   <main>
     <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
       <h4 class="fs-5">Ames, Iowa</h4>
@@ -42,6 +44,7 @@
           </a>
         </li>
       </ul>
+      <div id="observablehq-patterns-a907bc69"></div>
       <hr>
       <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1"
@@ -132,6 +135,7 @@
     </div>
   </div>
 
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
@@ -172,6 +176,7 @@
         if (name === "charts") return new Inspector(document.querySelector("#observablehq-charts-a907bc69"));
         if (name === "mapSelector") return new Inspector(document.querySelector("#observablehq-mapSelector-a907bc69"));
         if (name === "viewof parametersv2") return new Inspector(document.querySelector("#observablehq-viewof-parametersv2-a907bc69"));
+        if (name === "patterns") return new Inspector(document.querySelector("#observablehq-patterns-a907bc69"));
         return ["setupCharts"].includes(name);
       });
     }
