@@ -61,9 +61,8 @@
     </div>
     <div class="b-divider"></div>
     <div class="d-flex flex-column flex-shrink-0 p-4">
-      <br />
+      <p class="h5">Select Neighborhoods From The List or Map</p>
       <div class='row'>
-        <p class="h5">Select Neighborhoods From The List or Map</p>
         <div id="observablehq-charts-a907bc69" class='col-md-3'></div>
         <div id="observablehq-mapSelector-a907bc69" class="col-md-9"></div>
       </div>
@@ -145,7 +144,7 @@
   <script type="module">
     import { Runtime, Inspector, Library } from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
     import define from "https://api.observablehq.com/@berkeleyvis/final-project-prototype.js?v=3";
-    let mw = 1220
+    let mw = 1225
 
     // TODO add multiple queries
     const mediaQuery = window.matchMedia('(min-width: 768px)')
@@ -155,7 +154,7 @@
       if (e.matches) {
         // Then log the following message to the console
         console.log('Media enlarged!')
-        mw = 1220
+        mw = 1225
       }
       else {
         console.log('Media reduced!')
@@ -164,6 +163,7 @@
       // Observable runtime
       const runtime = new Runtime(Object.assign(new Library, {
         width: mw
+
       }));
       runtime.module(define, name => {
         if (name === "charts") return new Inspector(document.querySelector("#observablehq-charts-a907bc69"));
